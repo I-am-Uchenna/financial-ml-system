@@ -1,0 +1,24 @@
+import yaml
+from pathlib import Path
+from typing import Any
+
+class Config:
+    def __init__(self, config_path: str = '/content/financial-ml-system/config/config.yaml'):
+        self.config_path = Path(config_path)
+        self._config = self._load_config()
+    
+    def _load_config(self):
+        with open(self.config_path, 'r') as f:
+            return yaml.safe_load(f)
+    
+    def get(self, key: str, default: Any = None) -> Any:
+        keys = key.split('.')
+        value = self._config
+        for k in keys:
+            if isinstance(value, dict) and k in value:
+                value = value[k]
+            else:
+                return default
+        return value
+
+config = Config()

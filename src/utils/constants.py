@@ -1,0 +1,24 @@
+from pathlib import Path
+
+PROJECT_ROOT = Path('/content/financial-ml-system')
+DATA_DIR = PROJECT_ROOT / 'data'
+MODELS_DIR = PROJECT_ROOT / 'models'
+RESULTS_DIR = PROJECT_ROOT / 'results'
+CONFIG_DIR = PROJECT_ROOT / 'config'
+
+REGIME_BEAR = 0
+REGIME_NEUTRAL = 1
+REGIME_BULL = 2
+
+REGIME_NAMES = {
+    REGIME_BEAR: 'Bear',
+    REGIME_NEUTRAL: 'Neutral',
+    REGIME_BULL: 'Bull'
+}
+
+SIGNAL_BUY = 'BUY'
+SIGNAL_SELL = 'SELL'
+SIGNAL_HOLD = 'HOLD'
+
+TRADING_DAYS_PER_YEAR = 252
+RISK_FREE_RATE = 0.02

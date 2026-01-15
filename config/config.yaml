@@ -1,0 +1,41 @@
+data:
+  default_ticker: SPY
+  start_date: '2018-01-01'
+  train_test_split: 0.8
+features:
+  atr_period: 14
+  bb_period: 20
+  rsi_period: 14
+  sma_periods:
+  - 5
+  - 20
+  - 50
+models:
+  nn:
+    batch_size: 32
+    dropout:
+    - 0.3
+    - 0.2
+    - 0.0
+    early_stopping_patience: 10
+    epochs: 100
+    layers:
+    - 64
+    - 32
+    - 16
+    learning_rate: 0.001
+  svm:
+    C_options:
+    - 0.1
+    - 1
+    - 10
+    - 100
+    cv_folds: 5
+    kernel_options:
+    - rbf
+    - poly
+    - linear
+trading:
+  regime_threshold: 0.6
+  return_threshold_buy: 0.005
+  return_threshold_sell: -0.005
